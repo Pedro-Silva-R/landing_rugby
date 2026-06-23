@@ -1,16 +1,16 @@
 :root {
-    --bg: #f8f9fa;
+    --bg: #f9f9f9;
     --surface: #ffffff;
     --primary: #2d3436;
     --primary-bg: #2d3436;
-    --accent: #e63946;
-    --text: #2d3436;
-    --text-muted: #636e72;
+    --accent: #ff0000;
+    --text: #000000;
+    --text-muted: #8a8d8f;
     --border: #000000;
-    --font-display: 'Anton', sans-serif;
-    --font-body: 'Archivo', sans-serif;
+    --font-display: 'Epilogue', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
     --spacing: clamp(1rem, 5vw, 3rem);
-    --border-width: 4px;
+    --border-width: 2px;
 }
 
 [data-theme="dark"] {
@@ -18,9 +18,9 @@
     --surface: #111111;
     --primary: #ffffff;
     --primary-bg: #222222;
-    --accent: #FF3B3F;
+    --accent: #ff0000;
     --text: #ffffff;
-    --text-muted: #a0a0a0;
+    --text-muted: #8a8d8f;
     --border: #ffffff;
 }
 
@@ -113,6 +113,36 @@ header {
     filter: invert(0);
 }
 
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Default (Dark Mode): White */
+    filter: grayscale(1) brightness(0) invert(1);
+}
+
+[data-theme="light"] .logo-img {
+    /* Light Mode: Black */
+    filter: grayscale(1) brightness(0);
+}
+
+.logo:hover .logo-img {
+    filter: none;
+    transform: rotate(-5deg) scale(1.1);
+}
+
 .hero-clinico {
     background: var(--surface);
     color: var(--text);
@@ -134,21 +164,28 @@ header {
     color: white;
     padding: 1rem 2.5rem;
     font-family: var(--font-display);
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
     margin-top: 1rem;
-    transition: 0.2s;
-    border: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    border: 2px solid var(--border);
     cursor: pointer;
     letter-spacing: 0.03em;
+    box-shadow: 4px 4px 0px var(--border);
 }
 
 .btn:hover { 
-    filter: brightness(1.1); 
-    transform: translateY(-2px); 
+    transform: translate(-2px, -2px); 
+    box-shadow: 6px 6px 0px var(--accent);
+}
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px;
 }
 .btn-secondary { 
-    background: var(--primary-bg); 
+    background: var(--surface); 
+    color: var(--text);
     margin-left: 1rem; 
 }
 
@@ -162,8 +199,8 @@ header {
 .feature-item {
     background: var(--surface);
     padding: 2rem;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 0px var(--border);
 }
 
 .feature-item h3 { 

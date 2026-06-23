@@ -16,8 +16,10 @@ const updateThemeButtonText = (theme) => {
         // Usamos los SVGs de assets
         if (theme === 'light') {
             themeBtn.innerHTML = '<img src="assets/icons/moon.svg" width="20" height="20" alt="Dark Mode" style="display: block;">';
+            themeBtn.setAttribute('aria-pressed', 'true');
         } else {
             themeBtn.innerHTML = '<img src="assets/icons/sun.svg" width="20" height="20" alt="Light Mode" style="display: block;">';
+            themeBtn.setAttribute('aria-pressed', 'false');
         }
     }
 };
